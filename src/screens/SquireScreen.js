@@ -7,15 +7,27 @@ const SquireScreen = () => {
     const [green, setGreen] = useState(0);
     const [blue, setBlue] = useState(0);
 
+    const COLOR_INCREASE = 15;
+
 
     return <View>
         <ColorCounter
-            onIncrease={() => setRed(red + 1)}
-            onDecrease={() => setRed(red - 1)}
-            color='red' />
-        <ColorCounter color='green' />
-        <ColorCounter color='blue' />
+            onIncrease={() => setRed(red + COLOR_INCREASE)}
+            onDecrease={() => setRed(red - COLOR_INCREASE)}
+            color='red'
+        />
+        <ColorCounter
+            onIncrease={() => setGreen(green + COLOR_INCREASE)}
+            onDecrease={() => setGreen(green - COLOR_INCREASE)}
+            color='green'
 
+        />
+        <ColorCounter
+            onIncrease={() => setBlue(blue + COLOR_INCREASE)}
+            onDecrease={() => setBlue(blue - COLOR_INCREASE)}
+            color='blue'
+        />
+        <View style={{ width: 150, height: 150, backgroundColor: `rgb(${red}, ${green}, ${blue})` }} />
     </View>
 
 }
