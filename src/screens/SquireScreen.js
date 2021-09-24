@@ -9,11 +9,21 @@ const SquireScreen = () => {
 
     const COLOR_INCREASE = 15;
 
+    const setColor = (color, change) => {
+        if(color === 'red') {
+            if(red + change > 255 || red + change < 0) {
+                return;
+            }else {
+                setRed(red + change);
+            }
+        }
+    }
 
     return <View>
         <ColorCounter
-            onIncrease={() => setRed(red + COLOR_INCREASE)}
-            onDecrease={() => setRed(red - COLOR_INCREASE)}
+            onIncrease={() => setColor('red', COLOR_INCREASE)}
+            onDecrease={() => setColor("red" -1 * COLOR_INCREASE)}
+            
             color='red'
         />
         <ColorCounter
