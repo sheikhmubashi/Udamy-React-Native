@@ -73,25 +73,25 @@ const reducer = (state, action) => {
 const SquireScreen = () => {
 
     const [state, dispatch] = useReducer(reducer, { red: 0, green: 0, blue: 0 });
-
+    const { red, green, blue } = state;
     const COLOR_COUNTER = 15;
 
 
     return (
         <View>
             <ColorCounter
-                onIncrease={() => }
-                onDecrease={() => }
+                onIncrease={() => dispatch({ colorToChange: 'red', amount: COLOR_COUNTER })}
+                onDecrease={() => dispatch({ colorToChange: 'red', amount: -1 * COLOR_COUNTER })}
                 color='red'
             />
             <ColorCounter
-                onIncrease={() => }
-                onDecrease={() => }
+                onIncrease={() => dispatch({ colorToChange: 'green', amount: COLOR_COUNTER })}
+                onDecrease={() => dispatch({ colorToChange: 'green', amount: -1 * COLOR_COUNTER })}
                 color='green'
             />
             <ColorCounter
-                onIncrease={() => }
-                onDecrease={() => }
+                onIncrease={() => dispatch({ colorToChange: 'blue', amount: COLOR_COUNTER })}
+                onDecrease={() => dispatch({ colorToChange: 'blue', amount: -1 * COLOR_COUNTER })}
                 color='blue'
             />
             <View style={{ width: 150, height: 150, backgroundColor: `rgb(${red}, ${green}, ${blue})` }} />
