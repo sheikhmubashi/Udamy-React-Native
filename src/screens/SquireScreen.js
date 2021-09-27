@@ -9,14 +9,21 @@ const SquireScreen = () => {
     console.log(red);
     const COLOR_COUNTER = 15;
     const setColor = (color, change) => {
-        if (color === 'red') {
-            if (red + change > 255 || red + change < 0) {
+        switch (color) {
+            case 'red':
+                red + change > 255 || red + change < 0 ? null : setRed(red + change);
                 return;
-            } else {
-                setRed(red + change);
-            }
+            case 'green':
+                green + change > 255 || green + change < 0 ? null : setGreen(green + change);
+                return;
+            case 'blue':
+                blue + change > 255 || blue + change < 0 ? null : setBlue(blue + change);
+                return;
+            default:
+                return;
         }
     }
+
 
     return (
         <View>
@@ -26,20 +33,19 @@ const SquireScreen = () => {
                 color='red'
             />
             <ColorCounter
-                onIncrease={() => setGreen(green + COLOR_COUNTER)}
-                onDecrease={() => setGreen(green - COLOR_COUNTER)}
+                onIncrease={() => setColor("green", COLOR_COUNTER)}
+                onDecrease={() => setColor("green", -1 * COLOR_COUNTER)}
                 color='green'
             />
             <ColorCounter
-                onIncrease={() => setBlue(blue + COLOR_COUNTER)}
-                onDecrease={() => setBlue(blue - COLOR_COUNTER)}
+                onIncrease={() => setColor("blue", COLOR_COUNTER)}
+                onDecrease={() => setColor("blue", -1 * COLOR_COUNTER)}
                 color='blue'
             />
             <View style={{ width: 150, height: 150, backgroundColor: `rgb(${red}, ${green}, ${blue})` }} />
         </View>
     )
 }
-
 const styles = StyleSheet.create({})
 
 export default SquireScreen;
