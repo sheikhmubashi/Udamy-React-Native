@@ -56,6 +56,7 @@ import { useReducer } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import ColorCounter from '../Components/ColorCounter';
 
+const COLOR_COUNTER = 15
 
 const reducer = (state, action) => {
     switch (action.colorToChange) {
@@ -66,16 +67,15 @@ const reducer = (state, action) => {
         case 'blue':
             return { ...state, blue: state.blue + action.amount };
         default:
-            return state;
+            state;
+
     }
 }
 
-const SquireScreen = () => {
 
+const SquireScreen = () => {
     const [state, dispatch] = useReducer(reducer, { red: 0, green: 0, blue: 0 });
     const { red, green, blue } = state;
-    const COLOR_COUNTER = 15;
-
 
     return (
         <View>
@@ -85,7 +85,7 @@ const SquireScreen = () => {
                 color='red'
             />
             <ColorCounter
-                onIncrease={() => dispatch({ colorToChange: 'green', amount: COLOR_COUNTER })}
+                onIncrease={() => dispatch({ colorToChange: "green", amount: COLOR_COUNTER })}
                 onDecrease={() => dispatch({ colorToChange: 'green', amount: -1 * COLOR_COUNTER })}
                 color='green'
             />
