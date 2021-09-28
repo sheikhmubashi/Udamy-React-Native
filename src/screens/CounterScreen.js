@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import { useState } from 'react';
+import { useReducer } from 'react'; 
 
 const CounterScreen = () => {
-    const [counter, setCounter] = useState(0);
+    const [state, action] = useReducer(reducer, 0);
     return <View>
         <Button
             title='Increase Counter'
