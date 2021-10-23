@@ -19,7 +19,7 @@ const navigator = createStackNavigator(
     Image: ImageScreen,
     Counter: CounterScreen,
     Color: ColorScreen,
-    Squire: SquireScreen,
+    Squire: SquireScreen, 
     Text: TextScreen,
     Box: BoxScreen,
   },
